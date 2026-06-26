@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "urirun-runtime"
+version = "0.1.0"
+description = "The urirun URI-execution kernel (registry/runtime/v2/executors/worker) as a standalone, language-agnostic substrate. Extracted from urirun core (Phase 5)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [{ name = "if-uri" }]
+# The schema/registry core moved here from urirun (Phase 5), so the kernel now OWNS these deps;
+# urirun gets them transitively once it depends on urirun-runtime. jsonschema + pydantic are used
+# unconditionally (registry validation + typed models); tomli is the <3.11 tomllib fallback.
+dependencies = [
+  "jsonschema>=4.18",
+  "pydantic>=2",
+  "tomli>=2; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+grpc = ["grpcio>=1.60"]      # urirun_runtime.v2_grpc transport (lazy import)
+yaml = ["pyyaml>=6"]         # YAML manifests / `tree --format yaml` (lazy import)
+keyring = ["keyring>=24"]    # secret:// keyring backend (lazy import)
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["urirun_runtime*"]
