@@ -17,6 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+test = ["pytest>=7"]
 grpc = ["grpcio>=1.60"]      # urirun_runtime.v2_grpc transport (lazy import)
 yaml = ["pyyaml>=6"]         # YAML manifests / `tree --format yaml` (lazy import)
 keyring = ["keyring>=24"]    # secret:// keyring backend (lazy import)
