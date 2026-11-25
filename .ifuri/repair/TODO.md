@@ -1,7 +1,12 @@
-# Doctor repair checklist
+# Repair checklist
 
-- Source issue: https://github.com/subactor/doctor-agent/issues/100
-- Correlation ID: `31804399589`
-- [x] Add the missing repository `Makefile`.
-- [x] Validate the meta-package metadata and installed dependency contract.
-- [x] Run the declared validation targets in an isolated virtual environment.
+Process: `repair.v1`
+Issue: `#454`
+Correlation ID: `41323714367`
+
+- [x] Reproduce the original failure
+- [x] Fix the root cause
+- [x] Add or update regression tests
+- [x] Update implementation documentation
+- [x] Produce digest-bound ticket2dsl, code2dsl, docs2dsl and service2dsl projections
+- [x] Complete every Repair TODO item
